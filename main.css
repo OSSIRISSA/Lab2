@@ -16,6 +16,14 @@ body {
     width: 90%;
     max-width: 1200px;
     align-items: flex-start;
+    flex-direction: row;
+}
+
+.main-content, .sidebar {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
 }
 
 .main-content {
@@ -45,25 +53,25 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    flex-wrap: wrap;
 }
 
 .shopping-table div:nth-child(1) {
-    flex: 0 0 20%;
+    flex: 0 1 20%;
 }
 
 .shopping-table div:nth-child(2) {
-    flex: 0 0 50%;
+    flex: 1 1 auto;
     display: flex;
     justify-content: center;
     gap: 5px;
 }
 
 .shopping-table div:nth-child(3) {
-    flex: 0 0 30%;
+    flex: 0 1 30%;
     display: flex;
     justify-content: flex-end;
 }
-
 
 .header-input-container {
     display: flex;
@@ -99,6 +107,7 @@ body {
 .status-button .front {
     border-radius: 4px;
     background: #dadada;
+    padding: 10px;
 }
 
 .remove-button .front {
@@ -142,18 +151,10 @@ body {
     width: 100%;
 }
 
-.quantity-input {
-    width: 30px;
-    text-align: center;
-    border: none;
-    background-color: transparent;
-    font-size: 16px;
-}
-
 .quantity-button {
     border: none;
     border-radius: 50%;
-    font-size: 16px;
+    font-size: 1.12em;
 }
 
 .decrement {
@@ -178,7 +179,7 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 1.12em;
     background-color: #b0b0b0;
 }
 
@@ -192,7 +193,7 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 1.12em;
     margin-left: 5px;
 }
 
@@ -212,7 +213,6 @@ body {
     outline: none;
     border: 1px solid #007bff;
 }
-
 
 .count {
     background-color: #ff6b00;
@@ -238,7 +238,6 @@ body {
     border-radius: 5px;
 }
 
-
 .product-list {
     padding: 20px;
     align-items: stretch;
@@ -258,4 +257,105 @@ body {
 .large-header {
     font-size: 1.8em;
     padding: 20px;
+}
+
+.badge {
+    position: absolute;
+    bottom: 0;
+    left: 30px;
+    background-color: #4b0082;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px 10px 0 0;
+    font-size: 1rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: height 0.5s ease, background-color 0.5s ease;
+    overflow: hidden;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+}
+
+.badge .hover-text {
+    display: none;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+.badge:hover {
+    height: 50px;
+    background-color: #2c003e;
+}
+
+.badge:hover .hover-text {
+    display: block;
+}
+
+.badge:hover .main-text {
+    margin-bottom: 5px;
+}
+
+@media print {
+    .badge {
+        background-color: white;
+        color: black;
+        border: 2px solid #000000;
+    }
+    .badge .main-text {
+        display: none;
+    }
+    .badge .hover-text {
+        display: block;
+        color: #000000;
+    }
+}
+
+@media (max-width: 900px) {
+    .container {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 800px) {
+    .container{
+        width: fit-content;
+    }
+}
+
+@media (max-width: 700px) {
+    .container {
+        flex-direction: column;
+    }
+    .main-content, .sidebar {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+}
+
+button[data-tooltip] {
+    position: relative;
+}
+
+button[data-tooltip]::after {
+    content: attr(data-tooltip);
+    visibility: hidden;
+    opacity: 0;
+    width: max-content;
+    background-color: #800080;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+button[data-tooltip]:hover::after{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
 }
