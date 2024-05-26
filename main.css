@@ -1,0 +1,261 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    gap: 30px;
+    width: 90%;
+    max-width: 1200px;
+    align-items: flex-start;
+}
+
+.main-content {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    flex: 0 0 60%;
+}
+
+.padded {
+    padding: 20px;
+}
+
+.sidebar {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    flex: 0 0 40%;
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.shopping-table section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.shopping-table div:nth-child(1) {
+    flex: 0 0 20%;
+}
+
+.shopping-table div:nth-child(2) {
+    flex: 0 0 50%;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.shopping-table div:nth-child(3) {
+    flex: 0 0 30%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.header-input-container {
+    display: flex;
+}
+
+.product-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-right: transparent;
+    border-radius: 4px 0 0 4px;
+}
+
+.pushable {
+    display: inline-block;
+    padding: 0;
+    border: none;
+    margin-top: 6px;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+}
+
+.bought-button-cell {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.add-button .front {
+    border-radius: 0 4px 4px 0;
+    background: #007bff;
+}
+
+.status-button .front {
+    border-radius: 4px;
+    background: #dadada;
+}
+
+.remove-button .front {
+    border-radius: 4px;
+    background: #f44336;
+    padding: 9px 17px;
+}
+
+.quantity-button.decrement .front {
+    border-radius: 50%;
+    background: #f44336;
+    padding: 9px 18px;
+}
+
+.quantity-button.increment .front {
+    border-radius: 50%;
+    background: #4caf50;
+    padding: 9px 16px;
+}
+
+.front {
+    display: block;
+    padding: 9px 26px;
+    font-size: 1.12rem;
+    transform: translateY(-6px);
+    transition: transform 0.1s ease-in-out;
+}
+
+.pushable:active .front {
+    transform: translateY(-2px);
+}
+
+.add-button {
+    background: #0056b3;
+    color: white;
+}
+
+.shopping-table {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.quantity-input {
+    width: 30px;
+    text-align: center;
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+}
+
+.quantity-button {
+    border: none;
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+.decrement {
+    background-color: #d32f2f;
+    color: #fff;
+}
+
+.unpushable {
+    background-color: #e59a9a;
+    cursor: default;
+    display: inline-block;
+    padding: 12px 18px;
+    text-align: center;
+}
+
+.increment {
+    background-color: #388e3c;
+    color: #fff;
+}
+
+.status-button {
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: #b0b0b0;
+}
+
+.bought-button-cell {
+    text-align: right;
+}
+
+.remove-button {
+    background-color: #d32f2f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.remove-button:hover {
+    background-color: #d32f2f;
+}
+
+.product-input-inline {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.product-input-inline:focus {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    outline: none;
+    border: 1px solid #007bff;
+}
+
+
+.count {
+    background-color: #ff6b00;
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px 10px;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.product-container {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    padding: 10px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+}
+
+.product-container.mod {
+    padding: 13px 17px;
+    border-radius: 5px;
+}
+
+
+.product-list {
+    padding: 20px;
+    align-items: stretch;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.underscore {
+    border-bottom: 1px solid #ddd;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+.large-header {
+    font-size: 1.8em;
+    padding: 20px;
+}
