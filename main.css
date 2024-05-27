@@ -349,9 +349,9 @@ button[data-tooltip]::after {
     position: absolute;
     z-index: 1;
     bottom: 120%;
-    left: 50%;
-    transform: translateX(-50%) translateY(10px);
-    transition: opacity 0.3s, transform 0.3s;
+    left: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
 }
 
 button[data-tooltip]:hover::after{
