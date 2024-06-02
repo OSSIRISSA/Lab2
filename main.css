@@ -1,20 +1,17 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    padding: 20px 0;
     background-color: #f0f0f0;
 }
 
 .container {
-    position: relative;
     display: flex;
     gap: 30px;
     width: 90%;
-    max-width: 1200px;
     align-items: flex-start;
     flex-direction: row;
 }
@@ -22,52 +19,30 @@ body {
 .main-content, .sidebar {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    min-width: 0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 .main-content {
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
     flex: 0 0 60%;
 }
 
-.padded {
-    padding: 20px;
-}
-
-.sidebar {
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    flex: 0 0 40%;
+.item {
+    border-top: 1px solid #ddd;
     display: flex;
-    flex-direction: column;
-    vertical-align: middle;
-    text-align: left;
-}
-
-.shopping-table section {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     padding: 20px;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-.shopping-table div:nth-child(1) {
-    flex: 0 1 20%;
-}
-
-.shopping-table div:nth-child(2) {
-    flex: 1 1 auto;
+.product-count {
     display: flex;
-    justify-content: center;
     gap: 5px;
 }
 
-.shopping-table div:nth-child(3) {
+.bought-button-cell {
     flex: 0 1 30%;
     display: flex;
     justify-content: flex-end;
@@ -75,13 +50,14 @@ body {
 
 .header-input-container {
     display: flex;
+    position: relative;
 }
 
 .product-input {
     flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
-    border-right: transparent;
+    border-right: 1px solid #a9a9a9;
     border-radius: 4px 0 0 4px;
 }
 
@@ -94,14 +70,10 @@ body {
     border-radius: 0 4px 4px 0;
 }
 
-.bought-button-cell {
-    text-align: center;
-    vertical-align: middle;
-}
-
 .add-button .front {
     border-radius: 0 4px 4px 0;
     background: #007bff;
+    position: relative;
 }
 
 .status-button .front {
@@ -120,6 +92,10 @@ body {
     border-radius: 50%;
     background: #f44336;
     padding: 9px 18px;
+}
+
+.unpushable.decrement .front{
+    background-color: #e59a9a;
 }
 
 .quantity-button.increment .front {
@@ -145,12 +121,6 @@ body {
     color: white;
 }
 
-.shopping-table {
-    display: table;
-    height: 100%;
-    width: 100%;
-}
-
 .quantity-button {
     border: none;
     border-radius: 50%;
@@ -163,11 +133,12 @@ body {
 }
 
 .unpushable {
-    background-color: #e59a9a;
+    background-color: #c78888;
     cursor: default;
     display: inline-block;
-    padding: 12px 18px;
-    text-align: center;
+    padding: 0;
+    border: none;
+    margin-top: 6px;
 }
 
 .increment {
@@ -183,10 +154,6 @@ body {
     background-color: #b0b0b0;
 }
 
-.bought-button-cell {
-    text-align: right;
-}
-
 .remove-button {
     background-color: #d32f2f;
     color: #fff;
@@ -197,15 +164,16 @@ body {
     margin-left: 5px;
 }
 
-.remove-button:hover {
-    background-color: #d32f2f;
-}
-
 .product-input-inline {
     width: 100%;
     padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    font-size: 1.12em;
+    border: none;
+}
+
+.product-input-inline:disabled{
+    color: black;
+    background-color: transparent;
 }
 
 .product-input-inline:focus {
@@ -219,7 +187,6 @@ body {
     color: #fff;
     border-radius: 50%;
     padding: 5px 10px;
-    display: inline-block;
     margin-left: 5px;
 }
 
@@ -228,26 +195,26 @@ body {
     border-radius: 8px;
     padding: 10px;
     display: inline-flex;
-    justify-content: space-between;
     align-items: center;
-    width: auto;
 }
 
-.product-container.mod {
+.product-container.modified {
     padding: 13px 17px;
     border-radius: 5px;
 }
 
 .product-list {
-    padding: 20px;
-    align-items: stretch;
     display: flex;
     gap: 5px;
     flex-wrap: wrap;
 }
 
-.underscore {
-    border-bottom: 1px solid #ddd;
+.upperscore {
+    border-top: 1px solid #ddd;
+}
+
+.padded {
+    padding: 20px;
 }
 
 .strike {
@@ -255,14 +222,14 @@ body {
 }
 
 .large-header {
+    font-weight: bold;
     font-size: 1.8em;
-    padding: 20px;
 }
 
 .badge {
-    position: absolute;
+    position: fixed;
     bottom: 0;
-    left: 30px;
+    right: 30px;
     background-color: #4b0082;
     color: white;
     padding: 10px 20px;
@@ -300,6 +267,7 @@ body {
         background-color: white;
         color: black;
         border: 2px solid #000000;
+        border-bottom: none;
     }
     .badge .main-text {
         display: none;
@@ -313,11 +281,6 @@ body {
 @media (max-width: 900px) {
     .container {
         gap: 10px;
-    }
-}
-
-@media (max-width: 800px) {
-    .container{
         width: fit-content;
     }
 }
@@ -351,7 +314,7 @@ button[data-tooltip]::after {
     z-index: 1;
     bottom: 120%;
     left: 0;
-    transform: translateY(10px);
+    transform: translateX(-50%) translateY(10px);
     transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
 }
 

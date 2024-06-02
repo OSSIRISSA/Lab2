@@ -5,69 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кошик покупок</title>
     <link rel="stylesheet" href="main.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 <main class="container">
-    <article class="main-content shopping-table">
-        <header class="header-input-container padded underscore">
+    <article class="main-content">
+        <header class="header-input-container padded">
             <input type="text" placeholder="Назва товару" class="product-input">
             <button class="add-button pushable" data-tooltip="Add item"><span class="front">Додати</span></button>
         </header>
-        <section class="padded underscore">
-            <div class="product-name"><span class="strike">Помідори</span></div>
-            <div><span class="product-container mod">2</span></div>
-            <div class="bought-button-cell">
-                <button class="status-button pushable" data-tooltip="Mark as not bought"><span class="front">Не куплено</span></button>
-            </div>
-        </section>
-        <section class="padded underscore">
-            <div class="product-name">Печиво</div>
-            <div>
-                <button class="quantity-button decrement pushable" data-tooltip="Decrease quantity"><span class="front">-</span></button>
-                <span class="product-container mod">2</span>
-                <button class="quantity-button increment pushable" data-tooltip="Increase quantity"><span class="front">+</span></button>
-            </div>
-            <div class="bought-button-cell">
-                <button class="status-button pushable" data-tooltip="Mark as bought"><span class="front">Куплено</span></button>
-                <button class="remove-button pushable" data-tooltip="Remove item"><span class="front">×</span></button>
-            </div>
-        </section>
-        <section class="padded">
-            <div>
-                <label>
-                    <input type="text" value="Сир" class="product-input-inline">
-                </label>
-            </div>
-            <div>
-                <button class="quantity-button decrement unpushable" data-tooltip="Decrease quantity">-</button>
-                <span class="product-container mod">1</span>
-                <button class="quantity-button increment pushable" data-tooltip="Increase quantity"><span class="front">+</span></button>
-            </div>
-            <div class="bought-button-cell">
-                <button class="status-button pushable" data-tooltip="Mark as bought"><span class="front">Куплено</span></button>
-                <button class="remove-button pushable" data-tooltip="Remove item"><span class="front">×</span></button>
-            </div>
-        </section>
     </article>
     <aside class="sidebar">
-        <header class="large-header underscore"><strong>Залишилося</strong></header>
-        <section class="product-list underscore">
-            <div class="product-container">
-                <span>Печиво</span>
-                <span class="count">2</span>
-            </div>
-            <div class="product-container">
-                <span>Сир</span>
-                <span class="count">1</span>
-            </div>
-        </section>
-        <header class="large-header underscore"><strong>Куплено</strong></header>
-        <section class="product-list">
-            <div class="product-container">
-                <span class="strike">Помідори</span>
-                <span class="count strike">2</span>
-            </div>
-        </section>
+        <header class="large-header padded">Залишилося</header>
+        <section class="product-list padded upperscore" id="unbought"></section>
+        <header class="large-header padded upperscore">Куплено</header>
+        <section class="product-list padded upperscore" id="bought"></section>
     </aside>
 </main>
 <div class="badge">
